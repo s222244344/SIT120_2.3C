@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            max-width: 600px;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <th>Question</th>
+            <th>Example</th>
+        </tr>
+
+        <!-- Example 8: Input bindings -->
+        <tr>
+            <td>8. Input bindings</td>
+            <td>
+                <!-- Example 8.a (text) -->
+                <h3>8.a (text)</h3>
+                <div id="app-text">
+                    <input type="text" v-model="inpText">
+                    <p>Input Text value: "{{ inpText }}"</p>
+                </div>
+
+                <!-- Example 8.b (checkbox) -->
+                <h3>8.b (checkbox)</h3>
+                <div id="app-checkbox">
+                    <p>Check box If applicable: </p>
+                    <input type="checkbox" v-model="chkbox">
+                </div>
+
+                <!-- Example 8.c (Radio buttons) -->
+                <h3>8.c (Radio buttons)</h3>
+                <div id="app-radio">
+                    <p>Check box</p>
+                    <p>Yes</p><input type="radio" v-model="rdio">
+                    <p>No</p> <input type="radio" v-model="rio" disabled>
+                </div>
+
+                <!-- Example 8.d (Select dropdown) -->
+                <h3>8.d (Select dropdown)</h3>
+                <div id="app-select">
+                    <p>What is your favorite fruit of this list</p>
+                    <select v-model="choiceoffruit">
+                        <option value="1">Apple</option>
+                        <option value="2">Banana</option>
+                        <option value="3">Orange</option>
+                        <option value="4">Pear</option>
+                    </select>
+                </div>
+
+                <!-- Example 8.e (Textarea) -->
+                <h3>8.e (Textarea)</h3>
+                <div id="app-textarea">
+                    <p>Any comments to add:</p>
+                    <textarea v-model="hello"></textarea>
+                </div>
+            </td>
+        </tr>
+
+        <!-- Example 9: Watchers -->
+        <tr>
+            <td>9. Watchers</td>
+            <td>
+                <!-- Vue app for counter and watcher -->
+                <div id="app-counter">
+                    <p>Counter Value: {{ counter }}</p>
+                    <button @click="incrementCounter">Increment Counter</button>
+                </div>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td>10</td>
+            <td>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td>10.a</td>
+            
+            
+            <td>
+
+            </td>
+        </tr>
+    </table>
+
+    <!-- Vue 3 script -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+       const app = Vue.createApp({
+            data() {
+                return {
+                    inpText: 'Type something here!',
+                    chkbox: 'Check box if Applies',
+                    choiceoffruit: '',
+                    hello: '',
+                    rnge: 70,
+                    selectedFruitMessage: '',
+                    counter: 0,
+                  
+                };
+            },
+            methods: {
+                incrementCounter() {
+                    this.counter++;
+                }
+            },
+            watch: {
+                counter(newValue, oldValue) {
+                    console.log(`Counter changed from ${oldValue} to ${newValue}`);
+                }
+            }
+        });
+
+
+        app.mount('#app-counter');
+    </script>
+</body>
+
+</html>

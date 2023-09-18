@@ -1,0 +1,84 @@
+
+
+<html>
+<body>
+    <style>
+          table {
+        border-collapse: collapse;
+        width: 100%;
+        max-width: 600px;
+        margin-top: 20px;
+    }
+
+
+    th,
+    td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: left;
+    }
+
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    #app > div {
+      width: 200px;
+      padding: 20px;
+      border: dashed black 1px;
+    }
+    .classbind {
+      background-color: aqua;
+    }
+
+    </style>
+    <body>
+<table>
+    <tr>
+        <th>Question</th>
+        <th>Example</th>
+    </tr>
+
+
+    <tr>
+        <td>
+            1. Text interpolation
+        </td>
+
+
+        <td>
+            <div id="app">
+                {{ text }}
+                <div v-html="rawhtml"></div>
+                <div v-bind:class="className">
+                    The text infront of this Aqua Background is an example of v-bind:class
+            </div>
+        </td>
+    </tr>
+    
+</table>
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                text: "Hello Welcome(text inside {{}})", //Text interpolation, JavaExpressions {{}}
+                rawhtml: 'This is the content for v-html', //v-html
+                className: 'classbind' 
+    
+            }
+        }
+    });
+
+
+    app.mount('#app');
+</script>
+</body>
+</html>

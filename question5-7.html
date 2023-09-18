@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            max-width: 600px;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+            font-size: 30px;
+        }
+
+        /* body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        } */
+
+        #app>div {
+            width: 200px;
+            padding: 20px;
+            border: dashed black 1px;
+        }
+
+        .SIT120 {
+            color: red;
+            font-weight: bold;
+        }
+
+        ul {
+            text-shadow: 0cqmax;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <table>
+            <tr>
+                <th>Question</th>
+                <th>Example</th>
+            </tr>
+            <tr>
+                <td>5.Class and Style Bindings</td>
+            </tr>
+            <tr>
+                <td>a) v-bind:class</td>
+                <td>
+                    <div v-bind:class="className">
+                        Example of V-bind:class
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>b) v-bind:style</td>
+                <td>
+                    <div v-bind:style="{'font-size': size + 'px'}">Example of using v-bind style for font size</div>
+                    <div v-bind:style="{ 'background-color': isImportant ? 'lightblue' : 'burleywood'}">Example of
+                        v-bind style for background color</div>
+                </td>
+            </tr>
+            <tr>
+                <td>6. List Rendering</td>
+            </tr>
+            <tr>
+                <td> a) v-for with an object</td>
+                <td>
+                    <ul>
+                        <li v-for="(x,index) in foods">on index {{ index }}: "{{ x }}"</li>
+                        <!--//the v directive creates a list and the index of each item in the list using an array// -->
+                    </ul>
+                </td>
+            </tr>
+
+            <tr>
+                <td> b)v-for with a range</td>
+
+                <td>
+                    <ul>
+                        <li v-for="number in range(1,13)">{{ number }}</li>
+                    </ul>
+                </td>
+            </tr>
+
+            <tr>
+                <td> c) v-for on template</td>
+            </tr>
+
+            <tr>
+
+                <div id="wrapper">
+                    v-for= "x in animals"
+                    v-bind:animal-name="x"/>
+                </div>
+
+            </tr>
+
+            <tr>
+                <td> d) v-for with v-if </td>
+                <td>
+                    <ul>
+                        <template v-for="animal in animals">
+                            <li v-if="animal.status === 'deadly'">
+                                {{ animal.name }} ({{ animal.status }})
+                            </li>
+                        </template>
+                    </ul>
+                </td>
+            </tr>
+
+            <tr>
+                <td> e) Vue compnents</td>
+                <td>
+                    <div>
+                        <h2>{{name}}</h2>
+                        <p>{{message}}</p>
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td> 7.Event handling. Listening to events </td>
+            </tr>
+
+            <tr>
+                <td>
+                a) Event Handling
+            </td>
+
+
+            <td>
+                <input type="text" v-on:input="inpCount++" placeholder="Start writing here!">
+                <p>{{ 'input events that have occured: '+inpCount }}</p>
+            
+
+            </td>
+            </tr>
+
+            <tr>
+                <td>
+                  b) method Handlers 
+                </td>
+
+                <td>
+
+                </td>
+            </tr>
+
+            
+            
+
+
+        </table>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+
+
+        const app = Vue.createApp({
+            data() {
+                return {
+                    size: 45,
+                    isImportant: true,
+                    className: 'SIT120',
+                    foods: ['Cake', 'chicken', 'beef short ribs', 'chicken Schnitzel', 'Mash potatoes'],
+                    animal: [
+                        {name: 'Snake', status: 'deadly', active: true},
+                        {name: 'Elephent', status: 'deadly', active: true},
+                        {name: 'Dog', status: 'deadly', active: false},
+                        {name: 'Cat', status: 'deadly', active: false},
+                        {name: 'Scorpion', status: 'deadly', active: true}
+
+                    ],
+                    name: 'Tamir',
+                    message: 'I like coding websites',
+                    inpCount: 0
+                    
+
+                };
+            },
+            methods: {
+                range(start, end) {
+                    return Array.from({ length: end - start + 1 }, (_, i) => start + i);
+                }
+            }
+        });
+
+        app.mount('#app');
+
+
+        // export default{
+        //     data(){
+        //         return{
+        //             animals: ['Dog', 'Cat', 'Lion', 'Gorilla', 'Lion', 'Elephent']
+        //         };
+        //     }
+        // }
+
+
+
+
+
+    </script>
+</body>
+
+</html>

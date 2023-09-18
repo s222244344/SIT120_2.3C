@@ -1,0 +1,81 @@
+<html>
+<body>
+    <style>
+          table {
+        border-collapse: collapse;
+        width: 100%;
+        max-width: 600px;
+        margin-top: 20px;
+    }
+
+
+    th,
+    td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: left;
+    }
+
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    #app > div {
+      width: 200px;
+      padding: 20px;
+      border: dashed black 1px;
+    }
+    .classbind {
+      background-color: aqua;
+    }
+
+    </style>
+    <body>
+<table>
+    <tr>
+        <th>Question</th>
+        <th>Example</th>
+    </tr>
+
+
+    <tr>
+        <td>
+            4. Compount Properties
+        </td>
+
+
+        <td>
+            <div id="app">
+                <p>Click on the box below to view the use of methods in Vue:</p>
+                <div v-on:click="changeText">
+                  {{ text }}
+                </div>
+        </td>
+
+
+    </tr>
+</table>
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+<script>
+  const app = Vue.createApp({
+    data() {
+      return {
+        text: ''
+      }
+    },
+    methods: {
+      changeText() {
+        this.text = 'This button is an Example of methods in Vue!'
+      }
+    }
+  })
+ app.mount('#app')
+</script>
+</body>
+</html>
